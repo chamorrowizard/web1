@@ -1,0 +1,217 @@
+/* GLOBAL STYLES */
+:root {
+    --color-background: #000000;
+    --color-text-light: #ffffff;
+    --color-accent-green: #00ff66; /* Bright, neon green */
+    --color-dark-gray: #1a1a1a;
+    --font-heading: 'Georgia', serif; /* Use a common font that looks similar to the screen's serif font */
+    --font-body: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    /* This ensures a smooth transition for any hover effects */
+    transition: background-color 0.3s, color 0.3s; 
+}
+.protocol-nav{
+    color: #0F0;
+}
+
+/* TYPOGRAPHY */
+h1 {
+    font-family: var(--font-heading);
+    font-size: 5rem; /* Very large text for impact */
+    font-weight: 900;
+    line-height: 1;
+    /* Two-tone color effect, specific text would be wrapped in a span for the green color */
+}
+.hero h1 span.accent {
+    color: var(--color-accent-green);
+    /* A subtle text-shadow/glow effect can be added here */
+}
+
+/* SECTION 1: HERO STYLES */
+.hero {
+    position: relative;
+    padding: 10rem 5%;
+    overflow: hidden;
+    height: 90vh; /* Give the hero section a definite height */
+    display: flex;
+    align-items: center; /* Center content vertically */
+}
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    line-height: 1.1;
+    font-weight: normal; /* The font on the web page looks like a serif with a custom bold */
+}
+/* The crucial green color for "wealth" and "precision" */
+.accent-green {
+    color: var(--color-accent-green);
+    /* Add a subtle glow for the futuristic look */
+    text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Placeholder for the green data stream/matrix background graphic */
+    background-image: url('path/to/matrix-pattern.png'); /* Replace with actual pattern */
+    opacity: 0.4; /* Adjust for darkness */
+    z-index: -1;
+}
+
+/* Radar Graphic Styling */
+.radar-graphic {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    width: 200px;
+    height: 200px;
+    border: 1px solid var(--color-accent-green);
+    border-radius: 50%;
+    /* Add animation for pulse/spin */
+}
+
+/* SECTION 2: FEATURE GRID */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for desktop */
+    gap: 2rem;
+    padding: 4rem 5%;
+}
+.feature-card {
+    background-color: var(--color-dark-gray);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 102, 0.1); /* Subtle green border */
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.15); /* Subtle inner glow */
+}
+
+/* CTA BUTTONS */
+.primary-cta {
+    background-color: var(--color-accent-green);
+    color: var(--color-background);
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px var(--color-accent-green); /* Strong glow */
+}
+a{
+    text-decoration: none;
+    
+}
+/* 2. System Operational Pulse */
+.system-status {
+    position: absolute;
+    top: 15rem; /* Adjust based on your layout */
+    left: 5%;
+    color: var(--color-accent-green);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+}
+
+.system-status span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: var(--color-accent-green);
+    opacity: 0.5;
+    transition: opacity 0.5s;
+}
+
+/* JavaScript toggles this class */
+.system-status span.active {
+    opacity: 1;
+    /* Create a soft pulse effect */
+    box-shadow: 0 0 5px 2px var(--color-accent-green);
+}
+
+/* 3. Navigation Bar (Aura Button) */
+.sub-nav {
+    display: flex;
+    justify-content: flex-end; /* Pushes content to the right */
+    gap: 1.5rem;
+    position: absolute;
+    top: 50px;
+    right: 5%;
+    background: var(--color-dark-gray);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 255, 102, 0.3);
+}
+
+.sub-nav .nav-active {
+    /* The active "Aura" button has a strong green background */
+    background-color: var(--color-accent-green);
+    color: var(--color-background);
+    padding: 0.25rem 1rem;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.8);
+}
+
+/* 4. Radar Graphic (Zero Latency / DeFi Native) */
+.radar-graphic {
+    position: absolute;
+    right: 10%;
+    top: 30%;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    /* Start the rotation animation */
+    animation: rotateScan 20s linear infinite;
+    z-index: 10;
+}
+
+/* Center dot pulse */
+.center-dot-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-accent-green);
+    border-radius: 50%;
+    animation: pulse 2s ease-out infinite;
+}
+
+@keyframes rotateScan {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+    }
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+button{
+    border-radius: 25px;
+}
+
+/* ... Additional CSS for layout, responsiveness, and other sections ... */

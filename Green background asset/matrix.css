@@ -1,0 +1,49 @@
+.hero {
+    position: relative; /* To contain the canvas */
+    /* ... other styles ... */
+}
+#matrix-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Sits behind the hero-content */
+    opacity: 0.15; /* Apply a heavy overlay to make it dark */
+    filter: blur(1px); /* Slight blur can enhance the effect */
+}
+.hero-content {
+    position: relative; /* Ensure content sits on top of the canvas */
+    z-index: 2;
+}
+/* 5. Matrix Background Simulation */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensures it sits behind everything */
+    
+    /* THE KEY: Repeating Linear Gradient to create a grid/block pattern */
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 102, 0.05),
+        rgba(0, 255, 102, 0.05) 1px,
+        transparent 1px,
+        transparent 10px
+    ),
+    repeating-linear-gradient(
+        90deg,
+        rgba(0, 255, 102, 0.05),
+        rgba(0, 255, 102, 0.05) 1px,
+        transparent 1px,
+        transparent 10px
+    );
+    /* Adding a subtle dark background in case the body is not black */
+    background-color: #000;
+    
+    /* Add a subtle animation to make the grid 'flicker' or 'scroll' */
+    /* You would need keyframes for this, e.g., animation: flicker 10s steps(10) infinite; */
+}
