@@ -19,6 +19,7 @@ body {
 }
 .protocol-nav{
     color: #0F0;
+    
 }
 
 /* TYPOGRAPHY */
@@ -68,6 +69,7 @@ h1 {
     opacity: 0.4; /* Adjust for darkness */
     z-index: -1;
 }
+
 
 /* Radar Graphic Styling */
 .radar-graphic {
@@ -152,13 +154,9 @@ a{
 }
 
 /* 3. Navigation Bar */
-.protocol-nav{
-    justify-content: center;
-}
+
 .sub-nav {
     display: flex;
-    justify-content: space-between;
-    
     gap: 1.5rem;
     position: absolute;
     top: 50px;
@@ -208,10 +206,7 @@ a{
     border-radius: 50%;
     animation: pulse 2s ease-out infinite;
 }
-canvas{
-    width: 100%;
-    display: flex;
-}
+
 
 @keyframes rotateScan {
     from {
@@ -271,9 +266,9 @@ button{
     }
     
     /* 2. Hide all the links by default (Philosophy, Ecosystem, Rates) */
-    .sub-nav a {
+    /* .sub-nav a {
         display: none; 
-    }
+    } */
 
     /* 3. Reorganize the entire sub-nav for the mobile view */
     .sub-nav {
