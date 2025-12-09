@@ -24,7 +24,7 @@ body {
 /* TYPOGRAPHY */
 h1 {
     font-family: var(--font-heading);
-    font-size: 5rem; /* Very large text for impact */
+    font-size: 2rem; /* Very large text for impact */
     font-weight: 900;
     line-height: 1;
     /* Two-tone color effect, specific text would be wrapped in a span for the green color */
@@ -83,13 +83,25 @@ h1 {
 /* SECTION 2: FEATURE GRID */
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns for desktop */
-    gap: 2rem;
-    padding: 4rem 5%;
+    /* Create three equal columns */
+    grid-template-columns: repeat(3, 1fr); 
+    /* Add space between the columns */
+    gap: 32px; 
+    /* Center the grid horizontally */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    
 }
 .feature-card {
     background-color: var(--color-dark-gray);
     padding: 2rem;
+    max-width: 200px;
+    width: 90%;
+    padding: 30px;
+    margin: 20px auto;
+    min-height: 300px;
+    height: auto;
     border-radius: 8px;
     border: 1px solid rgba(0, 255, 102, 0.1); /* Subtle green border */
     box-shadow: 0 0 10px rgba(0, 255, 102, 0.15); /* Subtle inner glow */
@@ -140,15 +152,19 @@ a{
 /* 3. Navigation Bar (Aura Button) */
 .sub-nav {
     display: flex;
-    justify-content: flex-end; /* Pushes content to the right */
+    justify-content: space-between;
+    
     gap: 1.5rem;
     position: absolute;
     top: 50px;
     right: 5%;
     background: var(--color-dark-gray);
-    padding: 0.75rem 1.5rem;
+    padding: 10px 20px;
     border-radius: 50px;
     border: 1px solid rgba(0, 255, 102, 0.3);
+}
+.cta-button {
+    display: none; 
 }
 
 .sub-nav .nav-active {
@@ -158,6 +174,7 @@ a{
     padding: 0.25rem 1rem;
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 255, 102, 0.8);
+    flex-wrap: wrap;
 }
 
 /* 4. Radar Graphic (Zero Latency / DeFi Native) */
@@ -214,4 +231,68 @@ button{
     border-radius: 25px;
 }
 
+/* --- Responsive Stacking (Mobile/Squished Screen) --- */
+/* Media Query for screens 768px or narrower */
+@media (max-width: 768px) {
+    .feature-grid {
+        /* Change the grid to a single column */
+        grid-template-columns: 1fr; 
+        /* The boxes will now stack vertically */
+        gap: 20px; /* Adjust vertical spacing */
+    }
+    .h1, button,.hero, section, p, div{
+        display: block;
+        max-width: 100%;
+        word-wrap: break-word; 
+        overflow-wrap: break-word;
+       margin-left: 5px;
+    }
+}
+
+/* --- Mobile Styles (Below 768px) --- */
+@media (max-width: 768px) {
+    /* 1. Show the navigation button and keep it visible */
+    .cta-button {
+        display: block; /* Show the hamburger button */
+        /* To make it look like a button */
+        background: rgba(0, 255, 0, 0.2); 
+        border: 1px solid #0F0;
+        border-radius: 20px;
+        padding: 5px 15px;
+    }
+    
+    /* 2. Hide all the links by default (Philosophy, Ecosystem, Rates) */
+    .sub-nav a {
+        display: none; 
+    }
+
+    /* 3. Reorganize the entire sub-nav for the mobile view */
+    .sub-nav {
+        /* Allow the logo and button to sit on one line */
+        justify-content: space-between; 
+    }
+    
+    /* 4. Use an 'active' class to reveal the menu when the button is clicked */
+    .sub-nav.active a {
+        display: block; /* Overrides the 'display: none' above */
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        /* Links should stack in a column */
+    }
+    
+    /* 5. Force the menu to stack once active */
+    .sub-nav.active {
+        flex-direction: column; 
+        align-items: flex-start; /* Align stacked items to the left */
+        /* Optional: Add a dark background for the menu overlay */
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute; /* Take it out of flow */
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding-top: 50px; /* Space for the logo/button area */
+        z-index: 100; /* Ensure it is above everything */
+    }
+}
 /* ... Additional CSS for layout, responsiveness, and other sections ... */
