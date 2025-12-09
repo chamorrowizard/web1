@@ -39,9 +39,10 @@ h1 {
     position: relative;
     padding: 10rem 5%;
     overflow: hidden;
-    height: 90vh; /* Give the hero section a definite height */
+    height: 100vh; /* Give the hero section a definite height */
     display: flex;
     align-items: center; /* Center content vertically */
+    width: 100%;
 }
 .hero h1 {
     font-family: var(--font-heading);
@@ -132,7 +133,7 @@ a{
 }
 
 .system-status span {
-    display: inline-block;
+    display: flex;
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -147,9 +148,13 @@ a{
     opacity: 1;
     /* Create a soft pulse effect */
     box-shadow: 0 0 5px 2px var(--color-accent-green);
+    
 }
 
-/* 3. Navigation Bar (Aura Button) */
+/* 3. Navigation Bar */
+.protocol-nav{
+    justify-content: center;
+}
 .sub-nav {
     display: flex;
     justify-content: space-between;
@@ -174,7 +179,7 @@ a{
     padding: 0.25rem 1rem;
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 255, 102, 0.8);
-    flex-wrap: wrap;
+    
 }
 
 /* 4. Radar Graphic (Zero Latency / DeFi Native) */
@@ -202,6 +207,10 @@ a{
     background-color: var(--color-accent-green);
     border-radius: 50%;
     animation: pulse 2s ease-out infinite;
+}
+canvas{
+    width: 100%;
+    display: flex;
 }
 
 @keyframes rotateScan {
